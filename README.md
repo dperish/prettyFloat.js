@@ -31,4 +31,4 @@ prettyFloat(1234.5678, 2, true) // "1,234.57"
 ```
 
 ##License:
-The MIT License (MIT) - ([http://opensource.org/licenses/MIT])
+The MIT License (MIT) - http://opensource.org/licenses/MIT
