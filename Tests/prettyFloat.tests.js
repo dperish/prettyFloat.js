@@ -1,4 +1,5 @@
 ﻿/// <reference path="../prettyFloat.js" />
+/// <reference path="../qunit-1.14.0.js" />
 (function () {
 
     // 1
