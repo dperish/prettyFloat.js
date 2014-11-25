@@ -1,7 +1,9 @@
-// prettyFloat.js
-(function () {
+/*global window */
+(function (global) {
 
-    window.prettyFloat = function (value, precision, localize) {
+    "use strict";
+
+    global.prettyFloat = function (value, precision, localize) {
 
         /// <summary>Rounds, removes trailing zeros and optionally localizes floating point numbers</summary>
         /// <param name="value" type="Number">Input value to prettify</param>
@@ -9,24 +11,27 @@
         /// <param name="localize" type="Boolean">Localize the output to the current culture's format</param>
         /// <returns type="String">A prettified floating point number, as a string</returns>
 
-        if (!value) value = "";
-        if (!precision) precision = 0;
-        if (!localize) localize = false;
+        value = value || "";
+        precision = precision || 0;
+        localize = localize || false;
 
-        var rounded =
-            (!isNaN(precision) && parseInt(precision) > 0)
-                ? parseFloat(value).toFixed(parseInt(precision))
-                : value;
+        var rounded,
+            trimmed;
 
-        var trimmed = parseFloat(rounded).toString();
+        rounded = (!isNaN(precision) && parseInt(precision, 10) > 0)
+            ? parseFloat(value).toFixed(parseInt(precision, 10))
+            : value;
+
+        trimmed = parseFloat(rounded, 10).toString();
 
         if (localize && !isNaN(trimmed)) {
-            return parseFloat(trimmed).toLocaleString();
+
+            return parseFloat(trimmed, 10).toLocaleString();
+
         }
-        else {
-            return trimmed;
-        }
+
+        return trimmed;
 
     };
 
-})(window);
+}(window));
