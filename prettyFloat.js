@@ -22,12 +22,10 @@
             ? parseFloat(value).toFixed(parseInt(precision, 10))
             : value;
 
-        trimmed = parseFloat(rounded, 10).toString();
+        trimmed = parseFloat(rounded).toString();
 
         if (localize && !isNaN(trimmed)) {
-
-            return parseFloat(trimmed, 10).toLocaleString();
-
+            return parseFloat(trimmed).toLocaleString();
         }
 
         return trimmed;
