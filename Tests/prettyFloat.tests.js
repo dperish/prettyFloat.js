@@ -1,5 +1,5 @@
-﻿/// <reference path="../prettyFloat.js" />
-/// <reference path="../qunit-1.14.0.js" />
+﻿/// <reference path="../prettyFloat.min.js" />
+/// <reference path="./qunit-1.15.0.js" />
 (function () {
 
     // 1
@@ -27,6 +27,17 @@
         assert.equal(prettyFloat("0.1234567890", 9), "0.123456789", "Works with a value of less than 1");
         assert.ok(isNaN(prettyFloat("toilet ipsum", 17)), "Returns NaN value for total non-numeric");
         assert.ok(isNaN(prettyFloat()), "", "Is callable with no arguments");
+    });
+
+    // 4
+    QUnit.test("Number Protype Tests", function (assert) {
+        assert.equal((1.1111100000).prettyFloat(5), "1.11111", "Rounds off and trims trailing 0 zeros");
+        assert.equal((1.1111).prettyFloat(4), "1.1111", "Does not effect last decimal if not 0");
+        assert.equal((12340).prettyFloat(4, true), "12,340", "Localizes");
+        assert.equal((1.00).prettyFloat(4), "1", "Equals the integer value if all decimal digits are 0");
+        assert.equal((0.1234567890).prettyFloat(9), "0.123456789", "Works with a value of less than 1");
+        assert.equal((1.123456789012345).prettyFloat(16), "1.123456789012345", "Accepts 15 decimal digits");
+        assert.equal((1234567890.123).prettyFloat(3, true), "1,234,567,890.123", "Returns large locale formatted string (en-us)");
     });
 
 })();

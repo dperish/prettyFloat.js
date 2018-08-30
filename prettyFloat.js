@@ -1,15 +1,22 @@
-/*global window */
-(function (global) {
-
+/**
+ * prettyFloat.js - 1.2.0
+ * The MIT License (MIT) - http://opensource.org/licenses/MIT
+ */
+(function () {
     "use strict";
 
-    global.prettyFloat = function (value, precision, localize) {
+    var that = this;
 
-        /// <summary>Rounds, removes trailing zeros and optionally localizes floating point numbers</summary>
-        /// <param name="value" type="Number">Input value to prettify</param>
-        /// <param name="precision" type="Number">Decimal to round off at</param>
-        /// <param name="localize" type="Boolean">Localize the output to the current culture's format</param>
-        /// <returns type="String">A prettified floating point number, as a string</returns>
+    /**
+     * PrettyFloat rounds numbers, removes trailing zeros 
+     * and optionally localizes floating point numbers
+     * @param {number} value Input value to prettify
+     * @param {number} precision Number of fractional digits to round at
+     * @param {boolean} localize Localize the output to the current culture
+     * @returns {string} A prettified floating point number, as a string
+     * @global
+     */
+    var prettyFloat = function(value, precision, localize) {
 
         value = value || "";
         precision = precision || 0;
@@ -32,4 +39,10 @@
 
     };
 
-}(window));
+    this.prettyFloat = prettyFloat;
+    
+    Number.prototype.prettyFloat = function(precision, localize) {
+        return that.prettyFloat(this, precision, localize);
+    };
+
+}).apply(window);
