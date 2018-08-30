@@ -40,6 +40,10 @@ prettyFloat(1234.5678, 2, true) // "1,234.57" (en-US)
 (1234.5678).prettyFloat(2, true) // "1,234.57" (en-US)
 ```
 
+Note:
+-
+*All modern browsers now support the [ECMAScript Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl), which provides language sensitive string comparison, number formatting, and date and time formatting. For older browsers, you can use this polyfill:  https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en*
+
 License:
 -
 The MIT License (MIT) - http://opensource.org/licenses/MIT
