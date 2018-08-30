@@ -5,7 +5,6 @@ Rounds and removes trailing zeros from JavaScript floating point types, and opti
 
 Arguments
 -
----
 prettyFloat(value, [precision = 0], [localize = false])
 - **value** - Float - Input value to prettify
 - **precision** - Int - Decimal to round at
@@ -17,7 +16,6 @@ prettyFloat(value, [precision = 0], [localize = false])
 
 Usage:
 -
----
 ```
 prettyFloat(1.111001, 3) // "1.111"
 ```
@@ -44,5 +42,4 @@ prettyFloat(1234.5678, 2, true) // "1,234.57" (en-US)
 
 License:
 -
----
 The MIT License (MIT) - http://opensource.org/licenses/MIT
